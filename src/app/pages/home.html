@@ -1,0 +1,29 @@
+<div class="container" style="width: 35%">
+    <br/>
+    <form>
+        <div class="form-group">
+            <label for="fieldNome">Nome</label>
+            <input id="fieldNome" 
+                   type="text" 
+                   class="form-control"
+                   name="fieldNome"
+                   [(ngModel)]="fields.fieldNome"
+                   (change)="validarNome()"
+                   [ngStyle]="{'border-color': invalidNome.length > 0 ? 'red' : '#ced4da' }">
+            <span *ngIf="invalidNome.length > 0">
+                <span style="color: red" *ngFor="let msg of invalidNome">
+                    {{msg}}<br/>
+                </span>
+            </span>       
+        </div>
+        <div class="form-group">
+            <label for="comentario">Comentário</label>
+            <textarea id="comentario" 
+                    type="text" 
+                    cols="30"
+                    rows="5"
+                    class="form-control"></textarea>
+        </div>
+        <button class="btn btn-primary">Submit</button>
+    </form>
+</div>
